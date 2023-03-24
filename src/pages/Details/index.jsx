@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
+import { useAuth } from '../../hooks/auth';
 
 import { Container, Content } from './styles';
 
@@ -15,7 +16,10 @@ import { Footer } from '../../components/Footer';
 import receipt from '../../assets/receipt.svg';
 
 export function Details(){
-  const [quantity, setQuantity] = useState(1)
+  const [quantity, setQuantity] = useState(1);
+
+  const {user} = useAuth();
+  const isAdmin = user && user.is_admin === 1;
 
   const [data, setData] = useState(null);
   const params = useParams();
@@ -44,6 +48,9 @@ export function Details(){
     if(quantity > 0) {
       setQuantity(quantity - 1);
     }
+  }
+  function handleEditFood(){
+    navigate(`/editfood/${params.id}`)  
   }
 
 
@@ -91,14 +98,20 @@ export function Details(){
               >
                 <RiAddFill />
               </button>
-
+              {isAdmin?  
               <Button
+                onClick={handleEditFood}
                 isRed
-                className="button-include"
-              >
+                className="button-include">
+                <span>Edit plate</span>
+              </Button> 
+              :
+               <Button
+                isRed
+                className="button-include">
                 <img src={receipt} alt="receipt" />
                 <span>Include</span>
-              </Button>
+              </Button>}
             </div>
           </div>
         </div>

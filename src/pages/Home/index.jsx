@@ -13,6 +13,8 @@ import { Card } from '../../components/Card';
 import { useAuth } from '../../hooks/auth';
 import { api } from '../../services/api';
 
+
+
 export function Home(){
   const { user } = useAuth();
 
@@ -30,6 +32,7 @@ export function Home(){
 
   return(
     <Container>
+      
       <Header search={setSearch}/>
       
       <Content className="desktop-content">

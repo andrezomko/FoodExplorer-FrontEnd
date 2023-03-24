@@ -31,7 +31,7 @@ export function AddFood() {
     setWidth(event.target.value.length + 0.4);
     setNewIngredient(event.target.value)
   }
-
+//AQUI CARAI-----------------------
   function handleAddIngredient(){
     setIngredients(prevState => [...prevState, newIngredient]);
     setNewIngredient("");
@@ -43,7 +43,7 @@ export function AddFood() {
   }
 
   /* picture */
-  function handlePictureFile() {
+  function handlePictureFile(event) {
     const file = event.target.files[0];
     setPictureFile(file);
   }
@@ -56,6 +56,16 @@ export function AddFood() {
     }
 
     const formData = new FormData();
+   
+//     let ingredientsArray = ingredients;
+//     if (!Array.isArray(ingredientsArray)) {
+//        ingredientsArray = [ingredientsArray];
+//     }
+
+// ingredientsArray.forEach(ingredient => {
+//   formData.append("ingredients[]", ingredient);
+// });
+
     formData.append("category", category);
     formData.append("picture", pictureFile);
     formData.append("name", name);
@@ -63,7 +73,8 @@ export function AddFood() {
     formData.append("description", description);
     
     ingredients.map(ingredient => (
-        formData.append("ingredients", ingredient)
+
+        formData.append("ingredients[]", [ingredient])
     ))
 
     api.post("/foods", formData)

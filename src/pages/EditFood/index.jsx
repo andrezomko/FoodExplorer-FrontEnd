@@ -14,13 +14,19 @@ import { Footer } from '../../components/Footer';
 import { RiUpload2Line } from 'react-icons/ri';
 
 export function EditFood() {
+
   const navigate = useNavigate();
   const params = useParams();
 
   const [data, setData] = useState(null)
 
   const [category, setCategory] = useState("");
-  const [pictureFile, setPictureFile] = useState(null);
+
+  const [pictureFile, setPictureFile] = useState("");//esta funcionando.
+  //quando nao seleciono -> pictureFile = picture(backend) = so o nome do arq de img
+  //qd seleciono -> pictureFile = file = um objeto completo pego pela mudanca de evento
+
+
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
@@ -29,19 +35,29 @@ export function EditFood() {
   const [ingredients, setIngredients] = useState([])
   const [newIngredient, setNewIngredient] = useState("")
 
+
+
   useEffect(() => {
     async function fetchFood() {
+
       const response = await api.get(`/foods/${params.id}`);
       const { category, picture, name, price, description, ingredients } = response.data
+      //aqui ele coloca o picture, que é so um nome
+
       setCategory(category);
       setPictureFile(picture);
+      console.log(picture)
+
+      
       setName(name);
       setPrice(price);
       setDescription(description);
       setIngredients(ingredients.map(ingredient => ingredient.name));
-    }
 
+    }
+    
     fetchFood();
+//pictureFile esta tudo certo!
   }, []);
 
   /* ingredients */
@@ -60,29 +76,49 @@ export function EditFood() {
     setIngredients(prevState => prevState.filter(ingredient => ingredient != removedIngredient))
   }
 
-  /* picture */
-  function handlePictureFile() {
-    const file = event.target.files[0];
-
-    setPictureFile(file);
+  /* AQUI FAZ O OBJETO COMPLETO- aqui é aonde //!funciona */  
+  function handlePictureFile(event) {
+    const fileObj = event.target.files[0];
+    setPictureFile(fileObj);
+    console.log(fileObj);
   }
-
+//substituir com a mudanca de estado
+  // ----- ao clicar save ------
   function handleEditFood() {
-    if((category === 'selecionar') || !name || !ingredients || !price || !description) {
-      alert("Fill in all fields!");
-      return;
-    }
+
+    if((category === 'Select') || !name || !ingredients || !price || !description) {
+      alert("Please, fill in all fields!");
+      return
+    } 
+
+    // console.log(typeof pictureFile === 'object'); //true
+    // // if(typeof pictureFile === 'string' ){
+    // //   
+    // // }
+    // return
+
 
     api.put(`/foods/${params.id}`, { category, name, price, description, ingredients });
     
+
     const formData = new FormData();
     formData.append("picture", pictureFile);
+    // verificar FormData()
+        // for (const [key, value] of formData.entries()) {
+        //   console.log(key, value);
+        // 
+      
+console.log(`/foods/picture/${params.id}`);
 
-    api.patch(`/foods/picture/${params.id}`, formData)
-    .then(() => {
-      alert("Dish edited successfully!");
-      navigate(-1);
-    });
+    //!acusa o erro aqui nesse patch
+
+    if(typeof pictureFile === 'object' ){
+      api.patch(`/foods/picture/${params.id}`, formData) //endereco da rota esta correto      
+    }
+
+    alert("Dish edited successfully!");
+    navigate(-1);
+    
   }
 
   async function handleDelete() {
@@ -95,6 +131,9 @@ export function EditFood() {
     }
   }
 
+
+  
+
   return(
     <Container>
       <Header />
@@ -102,6 +141,7 @@ export function EditFood() {
       <Content className="content">
         <ButtonBack />
 
+        {/* <Form encType='multipart/form-data'> */}
         <Form>
           <header>
             Edit Dish
@@ -116,6 +156,7 @@ export function EditFood() {
                   <input 
                     type="file" 
                     id="food-picture" 
+                    // value={picture}
                     onChange={handlePictureFile}
                   />
                   <span>Select Image</span>
@@ -127,6 +168,7 @@ export function EditFood() {
                 <select 
                   id="category" 
                   name="category"
+                  defaultValue={category}
                   onChange={ event => setCategory(event.target.value)}
                 >
                   <option value="select">Select</option>
@@ -198,6 +240,10 @@ export function EditFood() {
             </div>
           </fieldset>
 
+
+
+
+{/* MOBILE -------------------------------------------------- */}
           <fieldset className="mobile">
             <div className="small-input" id="picture-input">
               <span>Dish image</span>
@@ -217,6 +263,7 @@ export function EditFood() {
               <select 
                 id="category" 
                 name="category"
+                defaultValue={category}
                 onChange={ event => setCategory(event.target.value)}
               >
                 <option value="select">Select</option>
@@ -231,6 +278,7 @@ export function EditFood() {
                 label="Name"
                 placeholder="Ex.: Ceasar Salad"
                 type="text"
+                value={name}
                 onChange={ event => setName(event.target.value) }
               />
             </div>
@@ -264,6 +312,7 @@ export function EditFood() {
                 label="Price"
                 placeholder="$ 00,00"
                 type="text"
+                value={price}
                 onChange={ event => setPrice(event.target.value) }
               />
             </div>
@@ -277,6 +326,7 @@ export function EditFood() {
                 cols="30" 
                 rows="10" 
                 placeholder="Briefly write about the dish, its ingredients and composition"
+                value={description}
                 onChange={ event => setDescription(event.target.value) }
                 />
             </div>
@@ -293,7 +343,7 @@ export function EditFood() {
             <Button
               onClick={handleEditFood}
             >
-              <span>Edit dish</span> 
+              <span>Save</span> 
             </Button>
           </div>
         </Form>

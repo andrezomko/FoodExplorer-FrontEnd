@@ -1,0 +1,8 @@
+1- botao include tem que incluir pedido;
+O usuário poderá incluir itens no carrinho, clicando no botão incluir. Já a quantidade é controlada pelos botões “-” e “+”.
+
+
+2- botao cart tem que levar para o carrinho
+Ao clicar no botão meu pedido, o usuário será redirecionado para uma tela onde irá ver o seu pedido, a soma e os métodos de pagamento.
+
+3 botao favorites tem que levar para o favorites
