@@ -40,8 +40,8 @@ export function Home(){
           <img src={front_cover} alt="cover" />
           <div className="frontcover-background">
             <div>
-              <h2>Unimaginable flavors</h2>
-              <span>Feel the care of the preparation with selected ingredients</span>
+              <h2>Unique flavors</h2>
+              <span>Top-notch ingredients in the best dishes you'll ever taste.</span>
             </div>
           </div> 
         </FrontCover>

@@ -1,12 +1,7 @@
 import { useState } from 'react';
-
 import { Container, ButtonFavorite, ButtonEdit, LinkSection } from './styles';
-
-import { RiEditBoxLine, RiHeartFill, RiHeartLine, RiArrowDropRightLine, RiAddFill, RiSubtractFill } from 'react-icons/ri';
-
-
+import { RiEditBoxLine, RiHeartFill, RiHeartLine, RiAddFill, RiSubtractFill } from 'react-icons/ri';
 import { Button } from '../Button';
-
 import { useAuth } from '../../hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
@@ -14,7 +9,7 @@ import { api } from '../../services/api';
 export function Card({ data }){
   const navigation = useNavigate();
 
-  const { user, foods } = useAuth();
+  const { user } = useAuth();
   const isAdmin = user && user.is_admin === 1 ;
 
 
@@ -52,7 +47,6 @@ export function Card({ data }){
   return(
     <Container>
       <div className="top-controls">
-
 
        {isAdmin != 1 &&  <ButtonFavorite
           onClick={handleFavorite}

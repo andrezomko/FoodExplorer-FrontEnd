@@ -1,7 +1,5 @@
 import { Container } from './styles';
-
 import { IoIosArrowBack } from 'react-icons/io';
-
 import { useNavigate } from 'react-router-dom';
 
 export function ButtonBack({ to }) {

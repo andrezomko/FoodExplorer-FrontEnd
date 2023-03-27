@@ -1,19 +1,14 @@
 import { useState } from 'react';
-
 import { Container, Logo, Form } from './styles';
-
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { ButtonText } from '../../components/ButtonText';
-
 import polygon from '../../assets/polygon.svg';
-
 import { useAuth } from '../../hooks/auth';
 
 export function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const { signIn } = useAuth();
 
   function handleSignIn() {
@@ -26,7 +21,6 @@ export function SignIn() {
         <img src={polygon} alt="polygon"/>
         <h2>food explorer</h2>
       </Logo>
-
       <Form>
         <header>
           Sign in

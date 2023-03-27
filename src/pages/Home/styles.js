@@ -47,15 +47,11 @@ export const FrontCover = styled.section`
   .frontcover-background {
     position: absolute;
     z-index: -1;
-
     height: 260px;
     width: 100%;
     margin-top: 164px;
-
     background: ${({ theme }) => theme.COLORS.BG_FRONTCOVER};
-
     border-radius: 8px;
-
     display: flex;
     
     div {
@@ -69,7 +65,6 @@ export const FrontCover = styled.section`
         font-weight: 500;
         font-size: 40px;
         line-height: 140%;
-
         color: ${({ theme }) => theme.COLORS.GRAY_100};
       }
 
@@ -79,7 +74,6 @@ export const FrontCover = styled.section`
         font-weight: 400;
         font-size: 16px;
         line-height: 140%;
-
         color: ${({ theme }) => theme.COLORS.GRAY_100};
       }
     }

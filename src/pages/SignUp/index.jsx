@@ -1,20 +1,16 @@
 import { useState } from 'react';
 import { Container, Logo, Form } from './styles';
-
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
-
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { ButtonText } from '../../components/ButtonText';
-
 import polygon from '../../assets/polygon.svg';
 
 export function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const navigate = useNavigate();
 
   function handleSignUp(){
@@ -49,7 +45,7 @@ export function SignUp() {
         </header>
         <Input 
           label="Your name"
-          placeholder="Example: John Smith"
+          placeholder="Example: Mark Phillips"
           onChange={event => setName(event.target.value)}
         />
         <Input 

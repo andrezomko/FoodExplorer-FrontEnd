@@ -19,18 +19,15 @@ export const Content = styled.main`
   grid-area: main;
   display: flex;
   flex-direction: column;
-
   overflow-y: auto;
 
   > h2 {
     padding: 34.29px 123px;
-
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
     font-size: 32px;
     line-height: 140%;
-
     color: ${({ theme }) => theme.COLORS.GRAY_200};
   }
 
@@ -39,7 +36,6 @@ export const Content = styled.main`
     max-width: 1132px;
     margin: 0 123px;
     border-spacing: 0;
-
     padding-bottom: 100px;
   }
 
@@ -48,16 +44,13 @@ export const Content = styled.main`
     border-bottom: 2px solid;
     border-right: 2px solid;
     border-color: ${({ theme }) => theme.COLORS.TABLE_BORDER};
-
     text-align: left;
     padding: 16px 24px;
-
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
     line-height: 160%;
-
     color: ${({ theme }) => theme.COLORS.GRAY_100}
   }
 
@@ -77,12 +70,9 @@ export const Content = styled.main`
     font-weight: 400;
     font-size: 14px;
     line-height: 160%;
-
     color: ${({ theme }) => theme.COLORS.GRAY_200};
-
     text-align: left;
     padding: 16px 24px;
-
     border-bottom: 2px solid;
     border-right: 2px solid;
     border-color: ${({ theme }) => theme.COLORS.TABLE_BORDER};
@@ -90,7 +80,6 @@ export const Content = styled.main`
 
   table td:first-child {
     white-space: nowrap;
-
     border-left: 2px solid;
     border-color: ${({ theme }) => theme.COLORS.TABLE_BORDER};
 

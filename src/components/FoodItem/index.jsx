@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import { Container } from "./styles";
-
 import { FiPlus, FiX } from 'react-icons/fi'
 
 export function FoodItem({ isNew, value, onClick, width, ...rest }) {

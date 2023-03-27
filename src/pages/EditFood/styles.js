@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
-  
   display: grid;
   grid-template-areas:
   "header"
@@ -16,14 +15,12 @@ export const Container = styled.div`
 
 export const Content = styled.main`
   grid-area: main;
-
   overflow-y: auto;
 `;
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-
   padding: 0 123px;
 
   > header {
@@ -32,9 +29,7 @@ export const Form = styled.form`
     font-weight: 500;
     font-size: 32px;
     line-height: 140%;
-
     color: ${({ theme }) => theme.COLORS.GRAY_100};
-
     padding-bottom: 32px;
   }
 
@@ -52,7 +47,6 @@ export const Form = styled.form`
     display: flex;
     align-items: center;
     gap: 32px;
-
     margin-bottom: 32px;
   }
 
@@ -65,23 +59,17 @@ export const Form = styled.form`
       font-weight: 400;
       font-size: 16px;
       line-height: 100%;
-
       color: ${({ theme }) => theme.COLORS.GRAY_200};
-
       padding-bottom: 8px;
     }
 
     > label {
       height: 55px;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       cursor: pointer;
-
       background: none;
-
       border: 1px solid;
       border-color: ${({ theme }) => theme.COLORS.WHITE};
       border-radius: 5px;
@@ -90,9 +78,7 @@ export const Form = styled.form`
       svg {
         width: 24px;
         height: 24px;
-
         color: ${({ theme }) => theme.COLORS.WHITE};
-
         margin-right: 8px;
       }
 
@@ -102,12 +88,9 @@ export const Form = styled.form`
         font-weight: 500;
         font-size: 14px;
         line-height: 24px;
-
         white-space: nowrap;
-
         color: ${({ theme }) => theme.COLORS.WHITE};
       }
-
       input {
         display: none;
       }
@@ -132,34 +115,27 @@ export const Form = styled.form`
 
     > label {
       height: 100%;
-
       font-family: 'Roboto';
       font-style: normal;
       font-weight: 400;
       font-size: 16px;
       line-height: 100%;
-
       color: ${({ theme }) => theme.COLORS.GRAY_200};
-
       padding-bottom: 8px;
     }
 
     > select {
       background: none;
-      
       border: 1px solid;
       border-color: ${({ theme }) => theme.COLORS.WHITE};
       border-radius: 5px;
-
       padding: 16px 14px;
       height: 55px;
-
       font-family: 'Roboto';
       font-style: normal;
       font-weight: 400;
       font-size: 16px;
       line-height: 100%;
-      
       color: ${({ theme }) => theme.COLORS.WHITE};
 
       /* Arrow */
@@ -185,9 +161,7 @@ export const Form = styled.form`
       font-weight: 400;
       font-size: 16px;
       line-height: 100%;
-
       color: ${({ theme }) => theme.COLORS.GRAY_200};
-
       padding-bottom: 8px;
     }
   }
@@ -203,40 +177,32 @@ export const Form = styled.form`
       font-weight: 400;
       font-size: 16px;
       line-height: 100%;
-
       color: ${({ theme }) => theme.COLORS.GRAY_200};
-
       padding-bottom: 8px;
     }
 
     > textarea {
       background: none;
-
       border: 1px solid;
       border-color: ${({ theme }) => theme.COLORS.WHITE};
       border-radius: 5px;
-
       padding: 14px;
-
       color: ${({ theme }) => theme.COLORS.WHITE};
-
       font-family: 'Roboto';
       font-style: normal;
       font-weight: 400;
       font-size: 16px;
       line-height: 100%;
     }
-
     textarea::placeholder {
       color: ${({ theme }) => theme.COLORS.GRAY_300};
     }
   }
-
   .button-wrapper {
     display: flex;
     justify-content: space-between;
 
-    >   button {
+    >button {
       width: 357px;
       height: 48px;
     }
@@ -251,7 +217,6 @@ export const Form = styled.form`
       display: flex;
       flex-direction: column;
       gap: 24px;
-
       border: none;
     }
   }

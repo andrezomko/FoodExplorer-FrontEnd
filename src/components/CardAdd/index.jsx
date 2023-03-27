@@ -1,23 +1,15 @@
 import { Container } from './styles';
-
 import { RiAddCircleLine } from 'react-icons/ri';
-
-import { useAuth } from '../../hooks/auth';
 import { useNavigate } from 'react-router-dom';
 
-export function CardAdd({ data }){
+export function CardAdd(){
   const navigation = useNavigate();
-
-  const { user } = useAuth()
-
   function handleAddFood() {
     navigation("/addfood")
   }
 
   return(
-    <Container
-      onClick={handleAddFood}
-    >
+    <Container onClick={handleAddFood} >
       <span>Create new dish</span>
       <RiAddCircleLine />
     </Container>

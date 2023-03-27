@@ -11,29 +11,22 @@ export const Container = styled.div`
     font-weight: 400;
     font-size: 16px;
     line-height: 100%;
-
     color: ${({ theme }) => theme.COLORS.GRAY_200};
-
     padding-bottom: 8px;
   }
 
   > input {
     height: 55px;
-    
     background: none;
-
     border: 1px solid;
     border-color: ${({ theme }) => theme.COLORS.WHITE};
     border-radius: 5px;
-
     padding: 16px 14px;
-
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 100%;
-    
     color: ${({ theme }) => theme.COLORS.WHITE};
   }
 

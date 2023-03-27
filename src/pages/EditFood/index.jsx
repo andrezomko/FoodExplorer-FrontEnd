@@ -1,64 +1,42 @@
 import { useState, useEffect } from 'react';
 import { api } from '../../services/api';
 import { useParams, useNavigate } from 'react-router-dom';
-
 import { Container, Content, Form } from './styles';
-
 import { Header } from '../../components/Header';
 import { ButtonBack } from '../../components/ButtonBack';
 import { Input } from '../../components/Input';
 import { FoodItem } from '../../components/FoodItem';
 import { Button } from '../../components/Button';
 import { Footer } from '../../components/Footer';
-
 import { RiUpload2Line } from 'react-icons/ri';
 
 export function EditFood() {
 
   const navigate = useNavigate();
   const params = useParams();
-
-  const [data, setData] = useState(null)
-
   const [category, setCategory] = useState("");
-
-  const [pictureFile, setPictureFile] = useState("");//esta funcionando.
-  //quando nao seleciono -> pictureFile = picture(backend) = so o nome do arq de img
-  //qd seleciono -> pictureFile = file = um objeto completo pego pela mudanca de evento
-
-
+  const [pictureFile, setPictureFile] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
-
   const [width, setWidth] = useState(13);
   const [ingredients, setIngredients] = useState([])
   const [newIngredient, setNewIngredient] = useState("")
-
-
 
   useEffect(() => {
     async function fetchFood() {
 
       const response = await api.get(`/foods/${params.id}`);
       const { category, picture, name, price, description, ingredients } = response.data
-      //aqui ele coloca o picture, que é so um nome
 
       setCategory(category);
       setPictureFile(picture);
-      console.log(picture)
-
-      
       setName(name);
       setPrice(price);
       setDescription(description);
       setIngredients(ingredients.map(ingredient => ingredient.name));
 
-    }
-    
-    fetchFood();
-//pictureFile esta tudo certo!
-  }, []);
+    }fetchFood()}, []);
 
   /* ingredients */
   function handleChange(event) {
@@ -76,14 +54,12 @@ export function EditFood() {
     setIngredients(prevState => prevState.filter(ingredient => ingredient != removedIngredient))
   }
 
-  /* AQUI FAZ O OBJETO COMPLETO- aqui é aonde //!funciona */  
   function handlePictureFile(event) {
     const fileObj = event.target.files[0];
     setPictureFile(fileObj);
     console.log(fileObj);
   }
-//substituir com a mudanca de estado
-  // ----- ao clicar save ------
+
   function handleEditFood() {
 
     if((category === 'Select') || !name || !ingredients || !price || !description) {
@@ -91,16 +67,8 @@ export function EditFood() {
       return
     } 
 
-    // console.log(typeof pictureFile === 'object'); //true
-    // // if(typeof pictureFile === 'string' ){
-    // //   
-    // // }
-    // return
-
-
     api.put(`/foods/${params.id}`, { category, name, price, description, ingredients });
     
-
     const formData = new FormData();
     formData.append("picture", pictureFile);
     // verificar FormData()
@@ -108,18 +76,12 @@ export function EditFood() {
         //   console.log(key, value);
         // 
       
-console.log(`/foods/picture/${params.id}`);
-
-    //!acusa o erro aqui nesse patch
-
     if(typeof pictureFile === 'object' ){
       api.patch(`/foods/picture/${params.id}`, formData) //endereco da rota esta correto      
     }
-
     alert("Dish edited successfully!");
     navigate(-1);
-    
-  }
+    }
 
   async function handleDelete() {
     const confirm = window.confirm('Do you really want to delete?');
@@ -156,7 +118,6 @@ console.log(`/foods/picture/${params.id}`);
                   <input 
                     type="file" 
                     id="food-picture" 
-                    // value={picture}
                     onChange={handlePictureFile}
                   />
                   <span>Select Image</span>
@@ -240,9 +201,6 @@ console.log(`/foods/picture/${params.id}`);
             </div>
           </fieldset>
 
-
-
-
 {/* MOBILE -------------------------------------------------- */}
           <fieldset className="mobile">
             <div className="small-input" id="picture-input">
@@ -317,7 +275,6 @@ console.log(`/foods/picture/${params.id}`);
               />
             </div>
               
-
             <div className="text-area">
                 <label>Description</label>
                 <textarea 
@@ -340,14 +297,11 @@ console.log(`/foods/picture/${params.id}`);
               <span>Delete dish</span> 
             </Button>     
 
-            <Button
-              onClick={handleEditFood}
-            >
+            <Button onClick={handleEditFood} >
               <span>Save</span> 
             </Button>
           </div>
         </Form>
-
         <Footer />
       </Content>
     </Container>

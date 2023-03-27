@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import theme from "../../styles/theme";
 
 export const Container = styled.div`
   width: 100%;
@@ -16,10 +15,8 @@ export const Content = styled.main`
     flex-direction: column;
     align-items: center;
     gap: 48px;
-
     width: 500px;
     padding: 32px;
-
     border-radius: 8px;
     background-color: ${({ theme }) => theme.COLORS.BG_HEADERFOOTER};
 
@@ -38,19 +35,16 @@ export const Content = styled.main`
 
 export const Form = styled.form`
   margin: 0 122px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
 
   > header {
     margin-bottom: 32px;
-
     font-style: normal;
     font-weight: 700;
     font-size: 25px;
     line-height: 29px;
-
     color: ${({ theme }) => theme.COLORS.WHITE};
   }
 
@@ -83,14 +77,11 @@ export const Avatar = styled.div`
   > label {
     width: 48px;
     height: 48px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     border-radius: 50%;
     background-color: ${({ theme }) => theme.COLORS.BG_SEARCH};
-
     position: absolute;
     bottom: 7px;
     right: 7px;
@@ -102,7 +93,6 @@ export const Avatar = styled.div`
     svg {
       width: 20px;
       height: 20px;
-
       color: ${({ theme }) => theme.COLORS.WHITE};
     }
   }

@@ -1,17 +1,14 @@
 import { useState } from 'react';
 import { api } from '../../services/api';
 import { useNavigate } from 'react-router-dom';
-
 import { Container, Content, Form } from './styles';
-
 import { Header } from '../../components/Header';
 import { ButtonBack } from '../../components/ButtonBack';
 import { Input } from '../../components/Input';
 import { FoodItem } from '../../components/FoodItem';
 import { Button } from '../../components/Button';
 import { Footer } from '../../components/Footer';
-
-import { RiUpload2Line, RiArrowDownSLine } from 'react-icons/ri';
+import { RiUpload2Line } from 'react-icons/ri';
 
 export function AddFood() {
   const navigate = useNavigate();
@@ -21,17 +18,16 @@ export function AddFood() {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
-
   const [width, setWidth] = useState(13);
   const [ingredients, setIngredients] = useState([])
   const [newIngredient, setNewIngredient] = useState("")
 
-  /* ingredients */
+
   function handleChange(event) {
     setWidth(event.target.value.length + 0.4);
     setNewIngredient(event.target.value)
   }
-//AQUI CARAI-----------------------
+
   function handleAddIngredient(){
     setIngredients(prevState => [...prevState, newIngredient]);
     setNewIngredient("");
@@ -42,30 +38,17 @@ export function AddFood() {
     setIngredients(prevState => prevState.filter(ingredient => ingredient != removedIngredient))
   }
 
-  /* picture */
   function handlePictureFile(event) {
     const file = event.target.files[0];
     setPictureFile(file);
   }
 
-  /* add food */
   function handleAddFood() {
     if((category === 'select') || !name || !ingredients || !price || !description) {
       alert("Fill in all fields!");
       return;
     }
-
     const formData = new FormData();
-   
-//     let ingredientsArray = ingredients;
-//     if (!Array.isArray(ingredientsArray)) {
-//        ingredientsArray = [ingredientsArray];
-//     }
-
-// ingredientsArray.forEach(ingredient => {
-//   formData.append("ingredients[]", ingredient);
-// });
-
     formData.append("category", category);
     formData.append("picture", pictureFile);
     formData.append("name", name);
@@ -73,7 +56,6 @@ export function AddFood() {
     formData.append("description", description);
     
     ingredients.map(ingredient => (
-
         formData.append("ingredients[]", [ingredient])
     ))
 

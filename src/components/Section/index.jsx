@@ -7,14 +7,14 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 export function Section({ title, children }) {
   const slider = useRef(null);
 
-  function handleLeftArrowClick(){
-    event.preventDefault();
+  function handleLeftArrowClick(e){
+    e.preventDefault();
 
     slider.current.scrollLeft -= slider.current.offsetWidth;
   }
 
-  function handleRightArrowClick(){
-    event.preventDefault();
+  function handleRightArrowClick(e){
+    e.preventDefault();
 
     slider.current.scrollLeft += slider.current.offsetWidth;
   }
@@ -25,7 +25,7 @@ export function Section({ title, children }) {
         <h2>{title}</h2>
         <Slider className="content"> 
           <button 
-            className="arrow-back"
+            className="Slider"
             onClick={handleLeftArrowClick}
             >
             <IoIosArrowBack />

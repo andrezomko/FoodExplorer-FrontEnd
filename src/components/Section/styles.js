@@ -1,10 +1,8 @@
 import styled from 'styled-components';
-import theme from '../../styles/theme';
 
 export const Container = styled.section`
   display: flex;
   flex-direction: column;
-
   margin: 62px 124px 0px 124px;
 
   .desktop {
@@ -13,13 +11,11 @@ export const Container = styled.section`
 
     > h2 {
       margin-bottom: 39.5px;
-
       font-family: 'Poppins';
       font-style: normal;
       font-weight: 500;
       font-size: 32px;
       line-height: 140%;
-
       color: ${({ theme }) => theme.COLORS.GRAY_100};
     }
   }
@@ -35,19 +31,16 @@ export const Container = styled.section`
 
     .mobile {
       display: block;
-
       display: flex;
       flex-direction: column;
 
       > h2 {
         margin-bottom: 39.5px;
-
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 500;
         font-size: 32px;
         line-height: 140%;
-
         color: ${({ theme }) => theme.COLORS.GRAY_100};
       }
 
@@ -62,29 +55,28 @@ export const Container = styled.section`
   }
 `;
 
-
 export const Slider = styled.div`
   display: flex;
   align-items: center;
   position: relative;
 
+
   > button {
     width: 60px;
     height: 100%;
+
 
     svg {
       width: 40px;
       height: 40px;
       color: ${({ theme }) => theme.COLORS.WHITE};
     }
-
     border: none;
-    background: ${({ theme }) => theme.COLORS.SLIDERARROW_BG};
-
+    background: linear-gradient(90deg, rgba(0, 10, 15, 0.272541) 0%, #000A0F 100%);
     z-index: 1;
   }
 
-  .arrow-back {
+  .Slider {
     position: absolute;
     left: 0;
   }
@@ -92,20 +84,20 @@ export const Slider = styled.div`
   .arrow-forward {
     position: absolute;
     right: 0;
+    color: red;
   }
 
   > div {
     width: 100%;
-
     display: flex;
     gap: 27px;
-
     overflow-x: auto;
     scroll-behavior: smooth;
         ::-webkit-scrollbar {
             display: none;
+            color: red;
         }
-    
+  
     > div:first-child {
       margin-left: 60px;
     }

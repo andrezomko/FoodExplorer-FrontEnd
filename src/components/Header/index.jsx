@@ -1,29 +1,25 @@
 import { useState } from 'react';
 import { useAuth} from '../../hooks/auth';
-import { Navigate, useNavigate } from 'react-router-dom';
-
+import {useNavigate } from 'react-router-dom';
 import { Container, Logo, Search, IconButton, Sidebar } from './styles';
-
 import { ButtonText } from '../ButtonText';
 import { Button } from '../Button';
-
 import { RiSearchLine, RiUser3Line, RiLogoutBoxRLine, RiMenuFill } from "react-icons/ri";
-
 import polygon from '../../assets/polygon.svg';
 import receipt from '../../assets/receipt.svg';
 
 export function Header({search}){
   const { signOut, user} = useAuth();
   const navigation = useNavigate();
-
   const [showSidebar, setShowSidebar] = useState(false);
+  const isAdmin = user && user.is_admin === 1 ;
 
   function handleProfile() {
     navigation("/profile");
   }
 
   function handleSignOut() {
-    alert("Do you really want to leave?");
+    alert("You will now sign out from your account");
     signOut();
     navigation("/");
   }
@@ -36,18 +32,8 @@ export function Header({search}){
     navigation("/addfood")
   }
 
-  function handleRequest(){
-    navigation('/requests')
-  }
-
-  const isAdmin = user && user.is_admin === 1 ;
-
   function handleSidebar() {
     showSidebar ? setShowSidebar(false) : setShowSidebar(true);
-  }
-
-  function handleFavorites(){
-    navigation('/favorites')
   }
 
   return(
@@ -60,15 +46,17 @@ export function Header({search}){
          {isAdmin && <div className='admin'>admin</div>}
         </span>
       </Logo>
+
       {
       isAdmin != 1 && 
         <ButtonText
           ismyfavorites
-          onClick={handleFavorites}>
+          to={`/favorites/${user.id}`}
+         >
             Favorites 
         </ButtonText> 
       }
-     
+
       <Search>
         <RiSearchLine />
         <input 
@@ -82,14 +70,11 @@ export function Header({search}){
         <Button className='newPlateBtn' onClick={handleToAddPlate} isRed>
          <span> New plate</span>
         </Button>):(
-          //!vou mexer nesse btn :
-        <Button isRed  onClick={handleRequest}  >
+        <Button isRed >
           <img src={receipt} alt="receipt" />
           <span>Cart(2)</span>
       </Button>
       )}
-
-     
 
       <IconButton
         onClick={handleProfile}
@@ -104,6 +89,7 @@ export function Header({search}){
       </IconButton>
       </div>
 
+{/* mobile --------------------------- */}
       <div className="mobile">
         <Logo
           onClick={handleBackHome}
@@ -111,6 +97,7 @@ export function Header({search}){
           <img src={polygon} alt="logo" />
           <span>
             food explorer
+            {isAdmin && <div className='admin'>admin</div>}
           </span>
         </Logo>
         <Search>
@@ -134,7 +121,7 @@ export function Header({search}){
               <a href="">Favorites</a>
             </li>
             <li>
-              <a href="">Cart (0)</a>
+              <a href="">Cart (2)</a>
             </li>
             <li>
               <a onClick={handleProfile}>Profile</a>

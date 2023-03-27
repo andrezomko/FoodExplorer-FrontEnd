@@ -27,18 +27,14 @@ export const Container = styled.div`
 
     .mobile {
       grid-area: header;
-
       width: 100%;
       height: 64px;
       padding: 0 64px;
-
       display: flex;
       gap: 32px;
       align-items: center;
       justify-content: space-between;
-
       position: relative;
-
       background-color: ${({ theme }) => theme.COLORS.BG_HEADERFOOTER};
     }
 
@@ -61,7 +57,6 @@ export const Logo = styled.button`
   align-items: center;
   gap: 11.2px;
   padding-right: 5px;
-
   background: none;
   border: none;
   
@@ -88,14 +83,9 @@ export const Logo = styled.button`
           position: absolute;
           bottom:-13px;
           right: 0;
-
-
-
-
     }
   }
  
-
   @media(max-width: 1279px) {
     > svg {
       width: 16px;
@@ -108,7 +98,6 @@ export const Logo = styled.button`
       font-weight: 700;
       font-size: 16px;
       line-height: 18px;
-
       white-space: unset;
     }
   }
@@ -120,7 +109,6 @@ export const Search = styled.div`
   gap: 14px;
   padding: 12px 14px;
   border-radius: 5px;
-  
   background-color: ${({ theme }) => theme.COLORS.BG_SEARCH};
   > svg {
     height: 19.5px;
@@ -142,7 +130,6 @@ export const Search = styled.div`
       width: 16px;
       height: 16px;
     }
-
     min-width: 130px;
   }
 `;
@@ -159,17 +146,13 @@ export const IconButton = styled.button`
 
 export const Sidebar = styled.div`
   display: ${({ showSidebar }) => showSidebar ? "block" : "none"};
-
   position: absolute;
   right: 0;
   top: 64px;
   z-index: 2;
-
   width: 200px;
   padding: 16px;
-
   background-color: ${({ theme }) => theme.COLORS.BG_HEADERFOOTER};
-
   border-bottom-left-radius: 8px;
 
   li:first-child {
@@ -182,7 +165,6 @@ export const Sidebar = styled.div`
 
   li {
     list-style-type: none;
-
     margin: 24px 0;
     padding-bottom: 8px;
     border-bottom: 2px solid;

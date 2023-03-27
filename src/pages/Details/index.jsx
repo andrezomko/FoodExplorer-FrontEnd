@@ -2,17 +2,13 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
 import { useAuth } from '../../hooks/auth';
-
 import { Container, Content } from './styles';
-
 import { RiAddFill, RiSubtractFill } from 'react-icons/ri';
-
 import { Header } from '../../components/Header';
 import { ButtonBack } from '../../components/ButtonBack';
 import { IngredientCard } from '../../components/IngredientCard';
 import { Button } from '../../components/Button';
 import { Footer } from '../../components/Footer';
-
 import receipt from '../../assets/receipt.svg';
 
 export function Details(){
@@ -52,20 +48,13 @@ export function Details(){
   function handleEditFood(){
     navigate(`/editfood/${params.id}`)  
   }
-
-
   return(
     <Container>
       <Header />
-
       <Content className="content">
-        <ButtonBack 
-          onClick={handleBack}
-        />
-
+        <ButtonBack onClick={handleBack}/>
         <div className="details-wrapper">
           <img src={pictureUrl} alt="food picture"/>
-
           <div className="food-details">
             <h2>{data && data.name}</h2>
             <span>{data && data.description}</span>

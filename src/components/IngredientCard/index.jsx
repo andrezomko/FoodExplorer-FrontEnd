@@ -1,5 +1,4 @@
 import { Container } from './styles';
-
 import ameixa from  '../../assets/ingredients/ameixa.png';
 import aniz from  '../../assets/ingredients/aniz.png';
 import cafe from  '../../assets/ingredients/cafe.png';
@@ -23,6 +22,7 @@ import onion from '../../assets/ingredients/onion.png';
 import tangie from '../../assets/ingredients/tangie.png';
 import sugar from '../../assets/ingredients/sugar.png';
 import ice from '../../assets/ingredients/ice.png';
+import almond from '../../assets/ingredients/almond.png'
 
 
 export function IngredientCard({name}){
@@ -78,6 +78,8 @@ export function IngredientCard({name}){
           return ingredientPicture = whiskey;
         case "onion":
           return ingredientPicture = onion
+        case "almond":
+          return ingredientPicture = almond
       }
     }
     

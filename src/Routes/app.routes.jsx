@@ -13,9 +13,6 @@ export function AppRoutes() {
       <Route path="/details/:id" element={<Details />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/requests" element={<Requests />} />  
-      {/* mexendo aqui:  */}
-
-      {/* ----------------  */}
     </Routes>
   )
 }

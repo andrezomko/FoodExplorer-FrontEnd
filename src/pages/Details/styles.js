@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
-
   display: grid;
   grid-template-areas:
   "header"
@@ -40,7 +39,6 @@ export const Content = styled.main`
         font-weight: 500;
         font-size: 40px;
         line-height: 140%;
-
         color: ${({ theme }) => theme.COLORS.GRAY_100}
       }
 
@@ -50,7 +48,6 @@ export const Content = styled.main`
         font-weight: 400;
         font-size: 24px;
         line-height: 140%;
-
         color: ${({ theme }) => theme.COLORS.GRAY_100}
       }
 
@@ -58,42 +55,34 @@ export const Content = styled.main`
         display: flex;
         align-items: center;
         gap: 16px;
-
         margin-top: 32.7px;
       }
 
       .controls {
         margin-top: 43.49px;
-          
         display: flex;
         align-items: center;
 
         > h3 {
           margin-right: 56.74px;
-
           font-family: 'Roboto';
           font-style: normal;
           font-weight: 400;
           font-size: 32px;
           line-height: 160%;
-
           text-align: center;
-
           color: ${({ theme }) => theme.COLORS.PRICE};
-
           white-space: nowrap;
         }
 
         .buttons-minus-plus {
-          margin-right: 17px;
-          
+          margin-right: 17px;         
           background: transparent;
           border: none;
 
           svg {
             height: 24px;
             width: 24px;
-
             color: ${({ theme }) => theme.COLORS.WHITE};
           }
         }
@@ -104,23 +93,18 @@ export const Content = styled.main`
           font-weight: 700;
           font-size: 20px;
           line-height: 160%;
-
           margin-right: 17px;
           color: ${({ theme }) => theme.COLORS.GRAY_100};
         }
 
         > button:last-child {
           margin-left: 10px;
-        }
-      }
-    }
-  }
+        }}}}
 
   @media(max-width: 1279px) {
     .details-wrapper {
       align-items: center;
       flex-direction: column;
-
       padding: 18px 64px 0;
 
       > img {
@@ -150,7 +134,6 @@ export const Content = styled.main`
 
         > h3 {
           margin-right: 24px;
-
           font-size: 24px;
           line-height: 100%;
         }
@@ -167,7 +150,6 @@ export const Content = styled.main`
         > span {
           font-size: 16px;
           line-height: 100%;
-
           margin-right: 8px;
         }
 
