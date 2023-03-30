@@ -40,8 +40,12 @@ The user will be able to view all registered dishes, and when they click on a di
  - Download (or clone) this repository
  - Install the node_modules with  $ npm install
  - Check the dependencies in the package.json and install them all ($ npm install dependency name)
- - Run the DB migrations with $ npx knex migrate:latest 
+ - Run the DB migrations with $ npx knex migrate:latest  (will create admin login automatically)
+ - Admin credencials: 
+        - admin@email.com
+        - pssw: 123456
  - Run the app with $npm run build!
+ 
 ##  💻 Try it out!
 
 🏛 Front end deploy:  https://zomkosfoodexplorer.netlify.app/
