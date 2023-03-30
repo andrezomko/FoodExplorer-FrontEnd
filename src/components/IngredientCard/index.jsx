@@ -74,12 +74,14 @@ export function IngredientCard({name}){
           return ingredientPicture = rucula;
         case "tomato":
           return ingredientPicture = tomate;
-        case "whiskey":
+        case "bourbon":
           return ingredientPicture = whiskey;
         case "onion":
           return ingredientPicture = onion
         case "almond":
           return ingredientPicture = almond
+        case "apricot":
+          return ingredientPicture = damasco
       }
     }
     
